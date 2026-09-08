@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Layout based on Sketch</title>
+    <style>
+        :root {
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --border-color: #e0e0e0;
+            --accent-color: #4caf50; /* Green for accents */
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .dashboard-container {
+            width: 900px;
+            height: 600px;
+            background-color: var(--card-bg);
+            border: 2px solid #000; /* Dark border to emulate whiteboard sketch */
+            border-radius: 8px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 50px 2fr 1fr 1fr 80px;
+            gap: 10px;
+            padding: 10px;
+        }
+
+        /* General styles for divs acting as components */
+        .comp {
+            border: 1px solid #999;
+            padding: 5px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        
+        .header {
+            grid-column: 1 / -1;
+            justify-content: space-between;
+            font-weight: bold;
+        }
+        .header-logo {
+            font-size: 1.2rem;
+        }
+        .header-icons {
+            display: flex;
+            gap: 5px;
+            font-size: 0.8rem;
+        }
+        .placeholder-icon {
+            width: 20px; height: 20px; background: #ccc; border-radius: 50%;
+        }
+
+        
+        .graph-area {
+            grid-column: 1 / -1;
+            grid-row: 2 / 3;
+            background-color: #fafafa;
+            flex-direction: column;
+        }
+        .graph-title {
+            margin-bottom: 10px; font-weight: bold;
+        }
+        .graph-line {
+            width: 80%; height: 40%; background: #ddd;
+            position: relative;
+        }
+        .graph-line::after {
+            content: ''; position: absolute; top: 0; left: 0; width: 30%; height: 100%; background: var(--accent-color);
+        }
+
+        
+        .card-1, .card-2, .card-3 {
+            grid-column: 1 / 2;
+        }
+        .card-1 { grid-row: 3 / 4; }
+        .card-2 { grid-row: 4 / 5; }
+        .card-3 { grid-row: 5 / 6; }
+        .card-content {
+            display: flex; align-items: center; width: 100%; justify-content: space-between;
+        }
+        .card-icon { width: 30px; height: 30px; background: #eee; border-radius: 4px; margin-right: 10px;}
+        .card-text { flex-grow: 1; text-align: left; font-size: 0.8rem;}
+
+        
+        .detail-column {
+            grid-column: 2 / 3;
+            grid-row: 3 / 6;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            border: none;
+        }
+        .detail-card {
+            flex: 1;
+            border: 1px solid #999;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px;
+            font-size: 0.7rem;
+        }
+        .detail-rect {
+            width: 30%; height: 50%; background: #e0e0e0;
+        }
+        .detail-text {
+            width: 60%; height: 10px; background: #f0f0f0;
+        }
+
+        
+        .bottom-icons {
+            grid-column: 1 / 2;
+            grid-row: 6 / 7;
+            justify-content: space-around;
+            border: none;
+            margin-top: -10px; /* Overlap slightly */
+        }
+        .icon-item {
+            width: 40px; height: 40px; border: 2px solid #000;
+            border-radius: 50%; cursor: pointer;
+            display: flex; justify-content: center; align-items: center; font-size: 1.5rem;
+            transition: background-color 0.3s;
+        }
+        .icon-item:hover {
+            background-color: #e8f5e9;
+        }
+        .icon-item.active {
+            background-color: var(--accent-color); color: #fff; border-color: var(--accent-color);
+        }
+
+        
+        .sketch-note {
+            position: absolute; font-family: 'Comic Sans MS', cursive, sans-serif; font-size: 0.7rem; color: #555;
+            pointer-events: none;
+        }
+        .note-header { top: 0; right: -50px; }
+        .note-right { top: 350px; right: -60px; }
+
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-container">
+
+        
+        <div class="comp header sketch-anchor">
+            <div class="header-logo"> </div>
+            <div class="header-icons">
+                
+                
+            </div>
+            <div class="sketch-note note-header">Header & Icons</div>
+        </div>
+
+    
+        <div class="comp graph-area">
+            <div class="graph-title">Chart</div>
+            <div class="graph-line"></div>
+        </div>
+
+    
+        <div class="comp card-1 card-content">
+            <div class="card-icon"></div>
+            
+        </div>
+        <div class="comp card-2 card-content">
+            <div class="card-icon"></div>
+            
+        </div>
+        <div class="comp card-3 card-content">
+            <div class="card-icon"></div>
+            
+        </div>
+
+        
+       
+        
+        <div class="comp bottom-icons">
+            <div class="icon-item active" onclick="activateIcon(this)">1</div>
+            <div class="icon-item" onclick="activateIcon(this)">2</div>
+            <div class="icon-item" onclick="activateIcon(this)">3</div>
+            <div class="icon-item" onclick="activateIcon(this)">4</div>
+        </div>
+
+    </div>
+
+    <script>
+    
+        function activateIcon(element) {
+            const icons = document.querySelectorAll('.icon-item');
+            icons.forEach(icon => icon.classList.remove('active'));
+            element.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>

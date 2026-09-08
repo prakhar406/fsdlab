@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<h1 style="text-align: center;"> JAVA SCRIPT REVISION </h1>
+<body>
+    <section style="text-align: center;">
+    <button onclick="runcode()">RUn code </button>
+    
+    <P id="result"()></P>
+    </section>
+    <script>
+        function runcode(){
+            let a = 10;
+            let b = 20;
+            let c = a + b;
+            document.getElementById("result").innerText = "The sum of a and b is: " + c;
+
+        }
+
+      
+    </script>
+    <h1 style="text-align: center;"> DATA TYPE </h1>
+    <section style="text-align: center;">
+    <p id="result2"></p>
+    
+    
+ <button onclick="runcode2()">Run code 2</button></section>
+    
+
+     
+    <script>
+        function runcode2(){
+            let name = "John"; // String
+            let age = 30; // Number
+            let isStudent = true; // Boolean
+          
+
+            document.getElementById("result2").innerHTML = 
+                "Name: " + typeof name + "<br>" +
+                "Age: " + typeof age + "<br>" +
+                "Is Student: " + typeof isStudent + "<br>" 
+             
+        }
+    </script>
+
+    
+    <h1 style="text-align: center;"> if else </h1>
+    <section style="text-align: center;">
+
+    <button onclick="runcode3()">Run code 3</button>
+
+    <p id="result3"></p>
+
+    </section>
+    <script>
+        
+        function runcode3(){
+            let number = 10;
+
+            if(number > 0){
+                document.getElementById("result3").innerText = "The number is positive.";
+            } else if(number < 0){
+                document.getElementById("result3").innerText = "The number is negative.";
+            } else {
+                document.getElementById("result3").innerText = "The number is zero.";
+            }
+        }
+
+
+
+
+
+
+    </script>
+
+    <h1 style="text-align: center;"> functions </h1>
+    <section style="text-align: center;">
+    <button onclick="runcode4()">Run code 4</button>
+    
+    <p id="result4"></p>
+    </section>
+
+    <script>
+
+        function runcode4(){
+            function addNumbers(x, y){
+                return x + y;
+            }
+
+            let sum = addNumbers(5, 10);
+            document.getElementById("result4").innerText = "The sum is: " + sum;
+        }
+    </script>
+
+
+
+<h1 style="text-align: center;"> array </h1>
+
+<section style="text-align: center;">
+    <p id="result5"></p>
+<button onclick="runcode5()">Run code 5</button>
+    <p id="result5"></p>
+</section>
+
+    <script>
+function runcode5(){
+      let students = ["Alice", "Bob", "Charlie"];
+
+      let firstStudent = students[0];
+      let secondStudent = students[1];
+      let totalStudents = students.length;
+
+      students.push("David");
+
+        document.getElementById("result5").innerHTML =
+            "First Student: " + firstStudent + "<br>" +
+            "Second Student: " + secondStudent + "<br>" +
+            "Total Students: " + totalStudents + "<br>" +
+            "Updated Students List: " + students.join(", ");
+            
+    }
+    
+
+    </script>
+
+    <h1 style="text-align: center;">objects</h1>
+    <section style="text-align: center;">
+    <button onclick="runcode6()">Run code 6</button>
+
+    <p id="result6"></p>
+    </section>
+    <script>
+        function runcode6(){
+            let student = {
+                name: "aman",
+                age: 16,
+                marks: 85,
+            };
+
+            let studentName = student.name;
+            let studentAge = student["age"];
+
+             student.marks = 90;
+
+             document.getElementById("result6").innerHTML =
+                "Student Name: " + studentName + "<br>" +
+                "Student Age: " + studentAge + "<br>" +
+                "Updated Marks: " + student.marks;
+
+            
+        
+
+            
+        }
+
+    </script>
+
+
+<h2 style="text-align: center;"> event handler </h2>
+
+<section style="text-align: center;">
+    <button id="setupEvent()">Setup Event</button>
+    <button id="clickmebtn">Click Me</button>
+    <p id="result7"></p>
+</section>
+
+<script>
+    function setupEvent(){
+        let button = document.getElementById("setupEvent");
+        button.addEventListener("click", function(){
+            document.getElementById("result7").innerText = "Button was clicked!";
+        });
+    }
+    </script>
+
+    <h2 style="text-align: center;"> template literals </h2>
+    <section style="text-align: center;">
+    <button onclick="runcode8()">Run code 8</button>
+    <p id="result8"></p>
+    </section>
+
+    <script>
+        function runcode8(){
+            let name = "John";
+            let age = 30;
+
+            let message = `My name is ${name} and I am ${age} years old.`;
+
+            document.getElementById("result8").innerText = message;
+        }
+    </script>
+
+
+    
+ 
+  <h2>DOM Manipulation Example</h2> 
+ 
+  <button onclick="runCode9()">Run Code</button> 
+ 
+  <p id="demoText">This text will change when you click Run.</p> 
+ 
+  <script> 
+    function runCode9() { 
+ 
+    
+      document.getElementById("demoText").innerText = "Hello! JavaScript changed 
+this text";
+
+ 
+      // style.color changes the text color 
+      document.getElementById("demoText").style.color = "green"; 
+    } 
+  </script> 
+
+ 
+
+
+
+            
+</body>
+</html>
